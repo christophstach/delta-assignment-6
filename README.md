@@ -9,3 +9,12 @@ In total we feed 800 self-hand-written numbers to the model. The numbers are wri
 ![Task1 Confusion Matrix](./task1_confusion_matrix.png)
 
 Regarding the results shown in the confusion matrix above, we assume that the provided model is not capable for real-world uses-cases.
+
+
+
+# 2 Transfer Learning in Ground Robot
+
+Uses the google net model pretrained on [ImageNet](http://www.image-net.org) data [GoogLeNet](https://arxiv.org/abs/1409.4842)
+
+# 3 Semantic Segmentation in Aerial Robot
+

@@ -28,11 +28,6 @@ for i = 0:9
         outputs = [outputs output];
         targets = [targets categorical(i)];
     end
-
-    
-    
-    
-
 end
 
 
