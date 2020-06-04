@@ -2,7 +2,7 @@ net = googlenet;
 dsFolder = './cars_motorcycles_pedestrians';
 datastore = imageDatastore(dsFolder, 'IncludeSubfolders',true,...
         'LabelSource','FolderNames');
-datastore.ReadFcn = @transformImage;
+datastore.ReadFcn = @transformImageTask2;
     
 labels = unique(datastore.Labels);
 numClasses = length(labels);
@@ -40,7 +40,7 @@ tic
 net = trainNetwork(trainDataset, lgraph, opts);
 toc
 
-function image = transformImage(filename)
+function image = transformImageTask2(filename)
     onState = warning('off', 'backtrace'); 
     c = onCleanup(@() warning(onState)); 
     image = imread(filename);
