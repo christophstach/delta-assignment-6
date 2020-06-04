@@ -1,4 +1,4 @@
-load('MNISTModel.mat');
+load('SelfTrainedMNISTModel.mat');
 
 dsFolder = './sylvia_mnist';
 testData = imageDatastore(dsFolder, 'IncludeSubfolders',true,...
@@ -16,16 +16,19 @@ function image = transformImageTask1(filename)
     image = imread(filename);
 
     image = rgb2gray(image);
-    imageSize = size(image);
+    image = imresize(image, [28 28]);
+    % imageSize = size(image);
 
-    if imageSize(1) < imageSize(2)
-        image = imresize(image, [28 NaN]);   
-    else
-        image = imresize(image, [NaN 28]);
-    end
+    %if imageSize(1) < imageSize(2)
+    %    image = imresize(image, [28 NaN]);   
+    %else
+    %    image = imresize(image, [NaN 28]);
+    %end
 
-    cropper = centerCropWindow2d(size(image), [28, 28]);
-    image = imcrop(image, cropper);
+    %cropper = centerCropWindow2d(size(image), [28, 28]);
+    %image = imcrop(image, cropper);
+    
+    
     image = imcomplement(image);
     image = imbinarize(image, 'adaptive', 'ForegroundPolarity', 'dark', 'Sensitivity', 0.65);
     image = image .* 255;
