@@ -27,4 +27,7 @@ function image = transformImageTask1(filename)
     cropper = centerCropWindow2d(size(image), [28, 28]);
     image = imcrop(image, cropper);
     image = imcomplement(image);
+    image = imbinarize(image, 'adaptive', 'ForegroundPolarity', 'dark', 'Sensitivity', 0.65);
+    image = image .* 255;
+    
 end
